@@ -15,7 +15,7 @@ if you don't, please [download](https://www.virtualbox.org/wiki/Downloads) and i
 The following Python packages are installed.
 
 - H5py, 2.6.0
-- Keras, 1.0.6
+- Keras, 1.0.5
 - Python, 3.5.2
 - Theano, 0.9.0.dev2
 - scipy, 0.17.1
@@ -23,6 +23,9 @@ The following Python packages are installed.
 In addition, an Ipython server is also installed. You can view it from the host's browser at http://localhost:8100.
 
 ### Testing Keras
+This VM comes with a few notebooks (with required datasets).
+
+If you'd prefer the obligatory *handwritten digits* example,
 ```bash
 $ vagrant ssh
 $ curl -sSL https://raw.githubusercontent.com/fchollet/keras/master/examples/mnist_mlp.py | python

@@ -14,6 +14,8 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision :shell, path: 'setup.sh', keep_color: true
 
+  config.vm.synced_folder "notebooks/", "/home/vagrant/notebooks"
+
   config.vm.network "forwarded_port", guest: 8100, host: 8100, auto_correct: true
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
   config.vm.provision "shell", run: "always", inline: <<-SHELL

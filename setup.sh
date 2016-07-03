@@ -54,18 +54,24 @@ mssg "Installing Theano"
 /home/vagrant/miniconda/bin/conda install -y theano >/dev/null 2>&1
 mssg "Installing H5py"
 apt-fast install -y libhdf5-dev >/dev/null 2>&1
-/home/vagrant/miniconda/bin/pip install h5py >/dev/null 2>&1
+/home/vagrant/miniconda/bin/pip install "h5py==2.6.0" >/dev/null 2>&1
 mssg "Installing Keras"
-/home/vagrant/miniconda/bin/pip install keras >/dev/null 2>&1
-mssg "Making sure we are using the most up-to-date versions of Theano and Keras"
-/home/vagrant/miniconda/bin/pip install git+git://github.com/Theano/Theano.git --upgrade --no-deps
-/home/vagrant/miniconda/bin/pip install git+git://github.com/fchollet/keras.git --upgrade --no-deps
+/home/vagrant/miniconda/bin/pip install "keras==1.0.5" >/dev/null 2>&1
+#mssg "Making sure we are using the most up-to-date versions of Theano and Keras"
+#/home/vagrant/miniconda/bin/pip install git+git://github.com/Theano/Theano.git --upgrade --no-deps
+#/home/vagrant/miniconda/bin/pip install git+git://github.com/fchollet/keras.git --upgrade --no-deps
 
 ################################################
 mssg "Installing IPython Notebook server"
 mkdir -p /home/vagrant/notebooks
 chown -R vagrant:vagrant /home/vagrant/notebooks
 /home/vagrant/miniconda/bin/pip install ipython[notebook]
+
+################################################
+mssg "Downloading a few datasets to get started with some of the IPython Notebooks"
+mkdir -p /home/vagrant/datasets/uci
+wget http://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indians-diabetes.data -O /home/vagrant/datasets/uci/pima-indians-diabetes.csv
+chown vagrant:vagrant /home/vagrant/datasets -R
 
 mssg "Done!"
 
