@@ -7,6 +7,7 @@
 # http://ermaker.github.io/blog/2015/09/08/get-started-with-keras-for-beginners.html
 # https://github.com/ericwooley/apt-fast-vagrant-install (for apt-fast)
 # https://gist.github.com/malev/2d2d76b1662e13acbbca (for miniconda)
+# https://gist.github.com/davemkirk/90140b1edde8d18c8b83 (for IPython notebooks)
 ################################################
 
 function mssg {
@@ -60,5 +61,11 @@ mssg "Making sure we are using the most up-to-date versions of Theano and Keras"
 /home/vagrant/miniconda/bin/pip install git+git://github.com/Theano/Theano.git --upgrade --no-deps
 /home/vagrant/miniconda/bin/pip install git+git://github.com/fchollet/keras.git --upgrade --no-deps
 
+################################################
+mssg "Installing IPython Notebook server"
+mkdir -p /home/vagrant/notebooks
+chown -R vagrant:vagrant /home/vagrant/notebooks
+/home/vagrant/miniconda/bin/pip install ipython[notebook]
 
 mssg "Done!"
+

@@ -1,24 +1,28 @@
 Deep Learning Virtual Machine
 ================================
-A [Vagrant](https://www.vagrantup.com/) file to set up a VirtualBox VM with [Keras](https://keras.io/) and [Theano](http://deeplearning.net/software/theano/) installed.
-The VM runs on Ubuntu 14.04.
+Sets up a VirtualBox VM with [Keras](https://keras.io/) 
+and [Theano](http://deeplearning.net/software/theano/) installed.
+A [Vagrant](https://www.vagrantup.com/) file is used to set up this VM, which runs on Ubuntu 14.04.
 
-# Getting Started
-
-I assume you already have [VirtualBox](https://www.virtualbox.org/wiki/Downloads) installed, 
-if you don't, follow the link to download and install it.
+### Getting Started
+I assume you already have VirtualBox (version 5+) installed,
+if you don't, please [download](https://www.virtualbox.org/wiki/Downloads) and install it.
 
 1. [Download and install Vagrant](http://www.vagrantup.com/downloads.html) if you haven't previously done so.
 2. Change into the `deep-learning-vm` directory and run `vagrant up` - this creates the VM.
 
-This should install 
+### What's Installed
+The following Python packages are installed.
+
 - H5py, 2.6.0
 - Keras, 1.0.6
 - Python, 3.5.2
 - Theano, 0.9.0.dev2
 - scipy, 0.17.1
 
-## Testing Keras
+In addition, an Ipython server is also installed. You can view it from the host's browser at http://localhost:8100.
+
+### Testing Keras
 ```bash
 $ vagrant ssh
 $ curl -sSL https://raw.githubusercontent.com/fchollet/keras/master/examples/mnist_mlp.py | python
