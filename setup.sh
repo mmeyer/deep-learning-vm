@@ -25,11 +25,17 @@ apt-get -y update >/dev/null 2>&1
 # apt-fast
 mssg "Installing apt-fast to try speed things up ..."
 apt-get install -y aria2 --no-install-recommends >/dev/null 2>&1
-wget https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast >/dev/null 2>&1
-wget https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast.conf >/dev/null 2>&1
-cp apt-fast /usr/bin/
-chmod +x /usr/bin/apt-fast
-cp apt-fast.conf /etc
+filetowget=apt-fast
+if [[ ! -f $filetowget ]]; then
+   wget https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast >/dev/null 2>&1
+   cp apt-fast /usr/bin/
+   chmod +x /usr/bin/apt-fast
+fi
+filetowget=apt-fast.conf
+if [[ ! -f $filetowget ]]; then
+   wget https://raw.githubusercontent.com/ilikenwf/apt-fast/master/apt-fast.conf >/dev/null 2>&1
+   cp apt-fast.conf /etc
+fi
 
 mssg "Installing pip ..."
 apt-fast -y install python-pip >/dev/null 2>&1
@@ -37,13 +43,16 @@ apt-fast -y install python-pip >/dev/null 2>&1
 ################################################
 # Miniconda
 mssg "Downloading & Installing Miniconda ..."
-wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh >/dev/null 2>&1
-chmod +x miniconda.sh
-./miniconda.sh -b -p /home/vagrant/miniconda
-echo 'export PATH="/home/vagrant/miniconda/bin:$PATH"' >> /home/vagrant/.bashrc
-source /home/vagrant/.bashrc
-chown -R vagrant:vagrant /home/vagrant/miniconda
-/home/vagrant/miniconda/bin/conda install conda-build anaconda-client anaconda-build -y -q
+miniconda=Miniconda3-4.0.5-Linux-x86_64.sh
+if [[ ! -f $miniconda ]]; then
+    wget --quiet http://repo.continuum.io/miniconda/$miniconda
+    chmod +x $miniconda
+    ./$miniconda -b -p /home/vagrant/miniconda
+    echo 'export PATH="/home/vagrant/miniconda/bin:$PATH"' >> /home/vagrant/.bashrc
+    source /home/vagrant/.bashrc
+    chown -R vagrant:vagrant /home/vagrant/miniconda
+    /home/vagrant/miniconda/bin/conda install conda-build anaconda-client anaconda-build -y -q
+fi
 
 ################################################
 # Theano, H5py, Keras
