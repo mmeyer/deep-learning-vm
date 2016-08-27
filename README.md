@@ -17,7 +17,7 @@ The following Python packages are installed.
 - H5py, 2.6.0
 - Keras, 1.0.5
 - Python, 3.5.2
-- Theano, 0.9.0.dev2
+- Theano, 0.8.2
 - scipy, 0.17.1
 
 In addition, an Ipython server is also installed. You can view it from the host's browser at http://localhost:8100.
@@ -32,4 +32,12 @@ $ curl -sSL https://raw.githubusercontent.com/fchollet/keras/master/examples/mni
 ```
 The script above, `mnist_mlp.py`, trains a simple deep neural network on the MNIST dataset. 
 If all goes well, you should see a test accuracy close to 98.40% after 20 epochs.
+
+### Testing Theano (Optional)
+Create a new notebook, and key in the following
+```python
+import theano
+theano.test()
+```
+then Run. It took ~**2 hours** for the 2995 tests to run in the VM on my laptop.
 
