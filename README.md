@@ -12,15 +12,17 @@ if you don't, please [download](https://www.virtualbox.org/wiki/Downloads) and i
 2. Change into the `deep-learning-vm` directory and run `vagrant up` - this creates the VM.
 
 ### What's Installed
-The following Python packages are installed.
 
-- H5py, 2.6.0
-- Keras, 1.0.5
 - Python, 3.5.2
-- Theano, 0.8.2
-- scipy, 0.17.1
+  - H5py, 2.6.0
+  - numpy, 1.11.1
+  - pandas, 0.18.1
+  - scipy, 0.18.1
+- Deep Learning,
+  - Keras, 1.0.5
+  - Theano, 0.8.2
 
-In addition, an Ipython server is also installed. You can view it from the host's browser at http://localhost:8100.
+In addition, an ~~Ipython~~ Jupyter notebook server is also installed. You can view it from the host's browser at http://localhost:8100.
 
 ### Testing Keras
 This VM comes with a few notebooks (with required datasets).

@@ -71,6 +71,10 @@ mssg "Installing Keras"
 /home/vagrant/miniconda/bin/pip install "keras==1.0.5" >/dev/null 2>&1
 
 ################################################
+# Other Python packages
+/home/vagrant/miniconda/bin/pip install --verbose "pandas==0.18.1" >/dev/null 2>&1
+
+################################################
 mssg "Installing IPython Notebook server"
 mkdir -p /home/vagrant/notebooks
 chown -R vagrant:vagrant /home/vagrant/notebooks
