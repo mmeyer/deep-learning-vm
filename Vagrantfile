@@ -12,6 +12,7 @@ Vagrant.configure(2) do |config|
     v.name   = "deep-learning-vm"
   end
 
+  config.vm.provision "file", source: "requirements.txt", destination: "/home/vagrant/requirements.txt"
   config.vm.provision :shell, path: 'setup.sh', keep_color: true
 
   config.vm.synced_folder "notebooks/", "/home/vagrant/notebooks"

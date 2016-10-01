@@ -74,10 +74,9 @@ mssg "Installing Tensorflow"
 export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.10.0-cp35-cp35m-linux_x86_64.whl
 /home/vagrant/miniconda/bin/pip install $TF_BINARY_URL >/dev/null 2>&1
 
-
 ################################################
 # Other Python packages
-/home/vagrant/miniconda/bin/pip install --verbose "pandas==0.18.1" >/dev/null 2>&1
+/home/vagrant/miniconda/bin/pip install --verbose -r /home/vagrant/requirements.txt
 
 ################################################
 mssg "Installing IPython Notebook server"
@@ -91,4 +90,7 @@ mkdir -p /home/vagrant/datasets/uci
 wget http://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indians-diabetes.data -O /home/vagrant/datasets/uci/pima-indians-diabetes.csv -nv
 chown vagrant:vagrant /home/vagrant/datasets -R
 
+echo ""
+mssg "List of installed packages"
+/home/vagrant/miniconda/bin/pip list
 mssg "Done!"
