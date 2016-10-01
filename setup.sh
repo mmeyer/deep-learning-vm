@@ -88,8 +88,7 @@ chown -R vagrant:vagrant /home/vagrant/notebooks
 ################################################
 mssg "Downloading a few datasets to get started with some of the IPython Notebooks"
 mkdir -p /home/vagrant/datasets/uci
-wget http://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indians-diabetes.data -O /home/vagrant/datasets/uci/pima-indians-diabetes.csv
+wget http://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indians-diabetes.data -O /home/vagrant/datasets/uci/pima-indians-diabetes.csv -nv
 chown vagrant:vagrant /home/vagrant/datasets -R
 
 mssg "Done!"
-
