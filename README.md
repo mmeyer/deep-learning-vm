@@ -1,7 +1,6 @@
 Deep Learning Virtual Machine
 ================================
-Sets up a VirtualBox VM with [Keras](https://keras.io/) 
-and [Theano](http://deeplearning.net/software/theano/) installed.
+Sets up a VirtualBox VM with [Keras](https://keras.io/), [TensorFlow](https://www.tensorflow.org/) and [Theano](http://deeplearning.net/software/theano/) installed.
 A [Vagrant](https://www.vagrantup.com/) file is used to set up this VM, which runs on Ubuntu 14.04.
 
 ### Getting Started
@@ -13,14 +12,15 @@ if you don't, please [download](https://www.virtualbox.org/wiki/Downloads) and i
 
 ### What's Installed
 
+- Deep Learning,
+  - Keras, 1.0.5
+  - TensorFlow, 0.10.0
+  - Theano, 0.8.2
 - Python, 3.5.2
   - H5py, 2.6.0
   - numpy, 1.11.1
   - pandas, 0.18.1
   - scipy, 0.18.1
-- Deep Learning,
-  - Keras, 1.0.5
-  - Theano, 0.8.2
 
 In addition, an ~~Ipython~~ Jupyter notebook server is also installed. You can view it from the host's browser at http://localhost:8100.
 
