@@ -93,4 +93,9 @@ chown vagrant:vagrant /home/vagrant/datasets -R
 echo ""
 mssg "List of installed packages"
 /home/vagrant/miniconda/bin/pip list
+
+mssg "Set the timezone"
+echo 'Asia/Singapore' | sudo tee /etc/timezone
+sudo dpkg-reconfigure -f noninteractive tzdata
+
 mssg "Done!"
