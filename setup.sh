@@ -55,6 +55,12 @@ if [[ ! -f $miniconda ]]; then
 fi
 
 ################################################
+# Essential Python packages : pandas, scikit-learn
+mssg "Installing pandas, scikit-learn"
+/home/vagrant/miniconda/bin/conda install "pandas==0.18.1" -y -q
+/home/vagrant/miniconda/bin/conda install "scikit-learn==0.18" -y -q
+
+################################################
 # Theano, H5py, Keras
 mssg "Installing Theano dependencies"
 apt-fast install -y python3-numpy python3-scipy python3-dev python3-pip python3-nose g++ libopenblas-dev git >/dev/null 2>&1
