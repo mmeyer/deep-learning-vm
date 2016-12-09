@@ -14,7 +14,7 @@ if you don't, please [download](https://www.virtualbox.org/wiki/Downloads) and i
 
 - Deep Learning,
   - Keras, 1.1.2
-  - TensorFlow, 0.10.0
+  - TensorFlow, 0.12.0rc0
   - Theano, 0.8.2
 - Python, 3.5.2
   - H5py, 2.6.0
