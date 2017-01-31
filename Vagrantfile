@@ -14,6 +14,7 @@ Vagrant.configure('2') do |config|
 
   config.vm.provision "file", source: "requirements.txt", destination: "/home/vagrant/requirements.txt"
   config.vm.provision :shell, path: 'setup.sh', keep_color: true
+  config.vm.provision "file", source: "jupyter_application_config.py", destination: "/home/vagrant/jupyter_notebook_config.py"
 
   config.vm.synced_folder "notebooks/", "/home/vagrant/notebooks"
 
@@ -21,7 +22,7 @@ Vagrant.configure('2') do |config|
   config.vm.network "forwarded_port", guest: 6006, host: 6006, auto_correct: true
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
   config.vm.provision "shell", run: "always", inline: <<-SHELL
-    /home/vagrant/miniconda/bin/ipython notebook --notebook-dir=/home/vagrant/notebooks --port 8100 --ip=0.0.0.0 &
+    /home/vagrant/miniconda/bin/jupyter notebook --notebook-dir=/home/vagrant/notebooks --port 8100 --ip=0.0.0.0 --config=/home/vagrant/jupyter_notebook_config.py &
   SHELL
 
 end

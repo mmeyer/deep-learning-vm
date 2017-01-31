@@ -88,7 +88,7 @@ export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorf
 mssg "Installing IPython Notebook server"
 mkdir -p /home/vagrant/notebooks
 chown -R vagrant:vagrant /home/vagrant/notebooks
-/home/vagrant/miniconda/bin/pip install ipython[notebook]
+/home/vagrant/miniconda/bin/pip install notebook
 
 ################################################
 mssg "Downloading a few datasets to get started with some of the IPython Notebooks"
