@@ -1,7 +1,7 @@
 Vagrant.configure('2') do |config|
   config.vm.box         = "ubuntu/trusty64"
   config.vm.hostname    = "deep-learning-vm"
-  #config.vm.box_version = "20160406.0.0"
+  config.vm.box_version = "20170422.0.0"
 
   config.vm.provider "virtualbox" do |v|
     v.cpus   = 4
@@ -22,7 +22,7 @@ Vagrant.configure('2') do |config|
   config.vm.network "forwarded_port", guest: 6006, host: 6006, auto_correct: true
   config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
   config.vm.provision "shell", run: "always", inline: <<-SHELL
-    /home/vagrant/miniconda/bin/jupyter notebook --notebook-dir=/home/vagrant/notebooks --port 8100 --ip=0.0.0.0 --config=/home/vagrant/jupyter_notebook_config.py &
+    /home/vagrant/anaconda/bin/jupyter notebook --notebook-dir=/home/vagrant/notebooks --port 8100 --ip=0.0.0.0 --config=/home/vagrant/jupyter_notebook_config.py &
   SHELL
 
 end

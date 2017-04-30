@@ -41,64 +41,49 @@ mssg "Installing pip ..."
 apt-fast -y install python-pip >/dev/null 2>&1
 
 ################################################
-# Miniconda
-mssg "Downloading & Installing Miniconda ..."
-miniconda=Miniconda3-4.0.5-Linux-x86_64.sh
-if [[ ! -f $miniconda ]]; then
-    wget --quiet http://repo.continuum.io/miniconda/$miniconda
-    chmod +x $miniconda
-    ./$miniconda -b -p /home/vagrant/miniconda
-    echo 'export PATH="/home/vagrant/miniconda/bin:$PATH"' >> /home/vagrant/.bashrc
+mssg "Downloading & Installing Anaconda ..."
+anaconda=Anaconda3-4.2.0-Linux-x86_64.sh
+if [[ ! -f $anaconda ]]; then
+    wget --quiet https://repo.continuum.io/archive/$anaconda
+    chmod +x $anaconda
+    ./$anaconda -b -p /home/vagrant/anaconda
+    echo 'export PATH="/home/vagrant/anaconda/bin:$PATH"' >> /home/vagrant/.bashrc
     source /home/vagrant/.bashrc
-    chown -R vagrant:vagrant /home/vagrant/miniconda
-    /home/vagrant/miniconda/bin/conda install conda-build anaconda-client anaconda-build -y -q
+    chown -R vagrant:vagrant /home/vagrant/anaconda
+    /home/vagrant/anaconda/bin/conda install conda-build anaconda-client anaconda-build -y -q
 fi
 
 ################################################
-# Essential Python packages : pandas, scikit-learn
-mssg "Installing pandas, scikit-learn"
-/home/vagrant/miniconda/bin/conda install "pandas==0.18.1" -y -q
-/home/vagrant/miniconda/bin/conda install "scikit-learn==0.18" -y -q
+/home/vagrant/anaconda/bin/conda install "scikit-learn==0.18" -y -q
 
 ################################################
 # Theano, H5py, Keras
 mssg "Installing Theano dependencies"
 apt-fast install -y python3-numpy python3-scipy python3-dev python3-pip python3-nose g++ libopenblas-dev git >/dev/null 2>&1
-/home/vagrant/miniconda/bin/pip install nose
-/home/vagrant/miniconda/bin/pip install nose_parameterized
+/home/vagrant/anaconda/bin/pip install nose
+/home/vagrant/anaconda/bin/pip install nose_parameterized
 mssg "Installing Theano"
-/home/vagrant/miniconda/bin/pip install "Theano==0.8.2"
-
-mssg "Installing H5py"
-apt-fast install -y libhdf5-dev >/dev/null 2>&1
-/home/vagrant/miniconda/bin/pip install "h5py==2.6.0" >/dev/null 2>&1
-
+/home/vagrant/anaconda/bin/conda install "Theano==0.8.2" -y -q
 mssg "Installing Keras"
-/home/vagrant/miniconda/bin/pip install "keras==1.1.2" >/dev/null 2>&1
+/home/vagrant/anaconda/bin/conda install -c conda-forge keras=2.0.2
 
 mssg "Installing Tensorflow"
-export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.0.1-cp35-cp35m-linux_x86_64.whl
-/home/vagrant/miniconda/bin/pip install $TF_BINARY_URL >/dev/null 2>&1
+export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.1.0-cp35-cp35m-linux_x86_64.whl
+/home/vagrant/anaconda/bin/pip install $TF_BINARY_URL >/dev/null 2>&1
 
 ################################################
 # Other Python packages
-/home/vagrant/miniconda/bin/pip install --verbose -r /home/vagrant/requirements.txt
+/home/vagrant/anaconda/bin/pip install --verbose -r /home/vagrant/requirements.txt
 
 ################################################
-mssg "Installing IPython Notebook server"
-mkdir -p /home/vagrant/notebooks
-chown -R vagrant:vagrant /home/vagrant/notebooks
-/home/vagrant/miniconda/bin/pip install notebook
-
-################################################
-mssg "Downloading a few datasets to get started with some of the IPython Notebooks"
+mssg "Downloading a few datasets to get started with some of the Jupyter Notebooks"
 mkdir -p /home/vagrant/datasets/uci
 wget http://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/pima-indians-diabetes.data -O /home/vagrant/datasets/uci/pima-indians-diabetes.csv -nv
 chown vagrant:vagrant /home/vagrant/datasets -R
 
 echo ""
 mssg "List of installed packages"
-/home/vagrant/miniconda/bin/pip list
+/home/vagrant/anaconda/bin/pip list
 
 mssg "Set the timezone"
 echo 'Asia/Singapore' | sudo tee /etc/timezone

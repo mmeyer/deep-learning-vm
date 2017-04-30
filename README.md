@@ -13,8 +13,8 @@ if you don't, please [download](https://www.virtualbox.org/wiki/Downloads) and i
 ### What's Installed
 
 - Deep Learning,
-  - Keras, 1.1.2
-  - TensorFlow, 1.0.1
+  - Keras, 2.0.2
+  - TensorFlow, 1.1.0
   - Theano, 0.8.2
 - Python, 3.5.2
   - H5py, 2.6.0
@@ -22,7 +22,7 @@ if you don't, please [download](https://www.virtualbox.org/wiki/Downloads) and i
   - pandas, 0.18.1
   - scipy, 0.18.1
 
-In addition, an ~~Ipython~~ Jupyter notebook server is also installed. You can view it from the host's browser at http://localhost:8100.
+In addition, a Jupyter notebook server is also installed. You can view it from the host's browser at http://localhost:8100. Password : password
 
 ### Testing Keras
 This VM comes with a few notebooks (with required datasets).
@@ -42,4 +42,3 @@ import theano
 theano.test()
 ```
 then Run. It took ~**2 hours** for the 2995 tests to run in the VM on my laptop.
-
