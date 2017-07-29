@@ -71,6 +71,9 @@ mssg "Installing Tensorflow"
 export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.2.0-cp35-cp35m-linux_x86_64.whl
 /home/vagrant/anaconda/bin/pip install $TF_BINARY_URL >/dev/null 2>&1
 
+mssg "Installing MXNet"
+/home/vagrant/anaconda/bin/conda install -c pjmtdw mxnet=0.10.0
+
 ################################################
 # Other Python packages
 /home/vagrant/anaconda/bin/pip install --verbose -r /home/vagrant/requirements.txt

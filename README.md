@@ -18,6 +18,7 @@ if you don't, please [download](https://www.virtualbox.org/wiki/Downloads) and i
   - Theano, 0.8.2
 - Python, 3.5.2
   - H5py, 2.6.0
+  - MXNet, 0.10.0
   - numpy, 1.11.1
   - pandas, 0.18.1
   - scipy, 0.18.1
