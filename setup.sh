@@ -64,13 +64,11 @@ apt-fast install -y python3-numpy python3-scipy python3-dev python3-pip python3-
 /home/vagrant/anaconda/bin/pip install nose_parameterized
 mssg "Installing Theano"
 /home/vagrant/anaconda/bin/conda install "Theano==0.8.2" -y -q
-mssg "Installing Keras"
-/home/vagrant/anaconda/bin/conda install -c conda-forge keras=2.0.5
-
 mssg "Installing Tensorflow"
-export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.2.0-cp35-cp35m-linux_x86_64.whl
+export TF_BINARY_URL=https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.3.0-cp35-cp35m-linux_x86_64.whl
 /home/vagrant/anaconda/bin/pip install $TF_BINARY_URL >/dev/null 2>&1
-
+mssg "Installing Keras"
+/home/vagrant/anaconda/bin/conda install -c conda-forge keras=2.0.6
 mssg "Installing MXNet"
 /home/vagrant/anaconda/bin/conda install -c pjmtdw mxnet=0.10.0
 

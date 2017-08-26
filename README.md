@@ -13,8 +13,8 @@ if you don't, please [download](https://www.virtualbox.org/wiki/Downloads) and i
 ### What's Installed
 
 - Deep Learning,
-  - Keras, 2.0.5
-  - TensorFlow, 1.2.0
+  - Keras, 2.0.6
+  - TensorFlow, 1.3.0
   - Theano, 0.8.2
 - Python, 3.5.2
   - H5py, 2.6.0
