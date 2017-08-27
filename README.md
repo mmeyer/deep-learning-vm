@@ -21,14 +21,3 @@ if you don't, please [download](https://www.virtualbox.org/wiki/Downloads) and i
   - scipy, 0.18.1
 
 In addition, a Jupyter notebook server is also installed. You can view it from the host's browser at http://localhost:8100. Password : password
-
-### Testing Keras
-This VM comes with a few notebooks (with required datasets).
-
-If you'd prefer the obligatory *handwritten digits* example,
-```bash
-$ vagrant ssh
-$ curl -sSL https://raw.githubusercontent.com/fchollet/keras/master/examples/mnist_mlp.py | python
-```
-The script above, `mnist_mlp.py`, trains a simple deep neural network on the MNIST dataset.
-If all goes well, you should see a test accuracy close to 98.40% after 20 epochs.
