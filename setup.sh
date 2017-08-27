@@ -56,6 +56,7 @@ fi
 
 ################################################
 /home/vagrant/anaconda/bin/conda install "scikit-learn==0.18" -y -q
+/home/vagrant/anaconda/bin/conda install "graphviz=2.38.0" -y -q
 
 ################################################
 # Tensorflow, Keras
