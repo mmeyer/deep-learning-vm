@@ -78,7 +78,7 @@ mssg "Installing Keras"
 
 ################################################
 mssg "Clone Huma tutorial files from git"
-git clone https://github.com/mmeyer/huma-tutorial.git /home/vagrant/huma-tutorial
+git clone https://github.com/mmeyer/huma-tutorial.git /home/vagrant/huma-tutorial/notebooks
 
 echo ""
 mssg "List of installed packages"
