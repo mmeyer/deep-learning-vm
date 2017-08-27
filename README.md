@@ -15,10 +15,7 @@ if you don't, please [download](https://www.virtualbox.org/wiki/Downloads) and i
 - Deep Learning,
   - Keras, 2.0.6
   - TensorFlow, 1.3.0
-  - Theano, 0.8.2
 - Python, 3.5.2
-  - H5py, 2.6.0
-  - MXNet, 0.10.0
   - numpy, 1.11.1
   - pandas, 0.18.1
   - scipy, 0.18.1
@@ -33,13 +30,5 @@ If you'd prefer the obligatory *handwritten digits* example,
 $ vagrant ssh
 $ curl -sSL https://raw.githubusercontent.com/fchollet/keras/master/examples/mnist_mlp.py | python
 ```
-The script above, `mnist_mlp.py`, trains a simple deep neural network on the MNIST dataset. 
+The script above, `mnist_mlp.py`, trains a simple deep neural network on the MNIST dataset.
 If all goes well, you should see a test accuracy close to 98.40% after 20 epochs.
-
-### Testing Theano (Optional)
-Create a new notebook, and key in the following
-```python
-import theano
-theano.test()
-```
-then Run. It took ~**2 hours** for the 2995 tests to run in the VM on my laptop.

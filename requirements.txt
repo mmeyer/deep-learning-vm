@@ -1,2 +1,1 @@
 matplotlib==1.5.3
-tflearn==0.2.1
